@@ -9,6 +9,7 @@ specifiers:
   eslint: ^8.26.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
+  nanoid: ^4.0.0
   prettier: ^2.7.1
   prettier-plugin-svelte: ^2.8.0
   svelte: ^3.52.0
@@ -17,6 +18,9 @@ specifiers:
   tslib: ^2.4.1
   typescript: ^4.8.4
   vite: ^3.2.2
+
+dependencies:
+  nanoid: 4.0.0
 
 devDependencies:
   '@playwright/test': 1.27.1
@@ -1463,6 +1467,12 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
     dev: true
+
+  /nanoid/4.0.0:
+    resolution: {integrity: sha512-IgBP8piMxe/gf73RTQx7hmnhwz0aaEXYakvqZyE302IXW3HyVNhdNGC+O2MwMAVhLEnvXlvKtGbtJf6wvHihCg==}
+    engines: {node: ^14 || ^16 || >=18}
+    hasBin: true
+    dev: false
 
   /natural-compare-lite/1.4.0:
     resolution: {integrity: sha512-Tj+HTDSJJKaZnfiuw+iaF9skdPpTo2GtEly5JHnWV/hfv2Qj/9RKsGISQtLh2ox3l5EAGw487hnBee0sIJ6v2g==}
