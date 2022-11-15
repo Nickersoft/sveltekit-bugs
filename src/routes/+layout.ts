@@ -6,9 +6,5 @@ export const load: LayoutLoad = async ({ fetch }) => {
 		credentials: 'include'
 	});
 
-	const headers = Array.from(response.headers.entries());
-
-	console.log(headers);
-
 	return { message: response.text() };
 };
