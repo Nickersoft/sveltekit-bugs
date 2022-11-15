@@ -12,6 +12,7 @@ export const handleFetch: HandleFetch = async ({ fetch, request, event }) => {
 		parsed.forEach((cookie) => {
 			event.cookies.set(cookie.name, cookie.value, {
 				...cookie,
+				domain: 'localhost',
 				sameSite: cookie.sameSite as CookieSerializeOptions['sameSite']
 			});
 		});
