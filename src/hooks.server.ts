@@ -6,6 +6,8 @@ export const handleFetch: HandleFetch = async ({ fetch, request, event }) => {
 	const res = await fetch(request);
 	const setCookie = res.headers.get('set-cookie');
 
+	event.cookies.set('dummy', 'test');
+
 	if (setCookie) {
 		const parsed = scp.parse(setCookie);
 
@@ -18,6 +20,7 @@ export const handleFetch: HandleFetch = async ({ fetch, request, event }) => {
 	}
 
 	console.log(event.cookies.get('access_token'));
+	console.log(event.cookies.get('dummy'));
 
 	return res;
 };
