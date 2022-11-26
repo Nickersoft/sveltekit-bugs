@@ -28,19 +28,18 @@ export const load: LayoutLoad = ({ fetch, data }) => {
 			}),
 			authExchange({
 				async getAuth({ authState }) {
-					console.log('CALLED');
 					if (!authState) {
 						return data?.accessToken ?? null;
 					}
-					console.log('YES');
+
 					const result = await fetch('http://localhost:3000/refresh', {
 						method: 'POST',
 						credentials: 'include'
 					});
 
-					console.log('REFRESH: ' + result);
-
 					const json = await result.json();
+
+					console.log('REFRESHED: ' + json.access_token);
 
 					if (json?.access_token) {
 						return json.access_token;
@@ -56,7 +55,6 @@ export const load: LayoutLoad = ({ fetch, data }) => {
 					return operation; // Do nothing, as it is managed in cookies
 				},
 				didAuthError({ error }) {
-					console.log(error.graphQLErrors.some((e) => e.extensions?.code === 'UNAUTHENTICATED'));
 					return error.graphQLErrors.some((e) => e.extensions?.code === 'UNAUTHENTICATED');
 				}
 			}),
