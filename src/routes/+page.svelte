@@ -1,2 +1,24 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import { goto } from '$app/navigation';
+
+	async function login(page: string) {
+		await fetch('http://localhost:3000/login', {
+			method: 'POST',
+			body: JSON.stringify({
+				username: 'john',
+				password: 'changeme'
+			}),
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			credentials: 'include'
+		});
+
+		await goto(page);
+	}
+</script>
+
+You're logged out!
+
+<button on:click={() => login('/ssr')}>Sign in (SSR)</button>
+<button on:click={() => login('/csr')}>Sign in (CSR)</button>
